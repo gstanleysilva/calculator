@@ -1,12 +1,21 @@
 const express = require('express');
+const hbs = require('hbs');
+const path = require('path');
 const calculator = require('./utils/calculator');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(express.static(path.join(__dirname, '../public/')));
+
+//HBS Configs
+app.set('view engine', 'hbs');
+hbs.registerPartials(path.join(__dirname, '../views/partials/'))
 
 app.get('/', (req, res) => {
-    res.send('Essa é a calculadora do Stanley');
+    res.render('index', {
+        name: "Gustavo St."
+    })
 })
 
 app.get('/calc', (req, res) => {
