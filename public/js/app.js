@@ -11,7 +11,7 @@ btn.addEventListener('click', () => {
 
     fetch(service).then((response) => {
         response.json().then((data) => {
-            console.log(data);
+            console.log(data)
         })
     })
 
